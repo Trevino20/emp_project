@@ -57,7 +57,7 @@ class CollegeController extends Controller
             'email' => $request->email,
         ]);
         
-        return redirect()->route('student.table')->with('success','New user Add successfully');
+        return redirect()->route('colleges.index')->with('success','New user Add successfully');
 
     }
 
@@ -104,7 +104,7 @@ class CollegeController extends Controller
             'gender' => $request->gender,
             'email' => $request->email,
         ]);
-        return redirect()->route('student.table')->with('success','Update successfully');
+        return redirect()->route('colleges.index')->with('success','Update successfully');
 
     }
 
@@ -115,6 +115,6 @@ class CollegeController extends Controller
     {
         $val= Teacher::find($id);
         $val->delete();
-        return redirect()->route('student.table')->with('success','');
+        return redirect()->route('colleges.index')->with('success','');
     }
 }

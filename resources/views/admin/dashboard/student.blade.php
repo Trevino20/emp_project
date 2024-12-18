@@ -25,10 +25,10 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Teachers DataTable</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Student DataTable</h6>
             </div>
             <div class="card-body">
-                <a href="{{ route('colleges.create') }}" class= "btn btn-success btn-sm md-3" color="blue"> Add
+                <a href="{{ route('create.student') }}" class= "btn btn-success btn-sm md-3" color="blue"> Add
                     New</a>
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -41,7 +41,7 @@
                                 <th>Class</th>
                                 <th>DOB</th>
                                 <th>Phone</th>
-                                <th>Email</th>
+                                {{-- <th>Email</th> --}}
                                 <th>Update</th>
                                 <th>Delete</th>
                                 <th>View</th>
@@ -58,8 +58,8 @@
                                     <td>{{ $student->class }} <sup>th</sup></td>
                                     <td>{{ $student->dob }}</td>
                                     <td>{{ $student->phone }}</td>
-                                    <td>{{ $student->email }}</td>
-                                    <td><a href="{{ route('colleges.show', $student->id) }}"
+                                    {{-- <td>{{ $student->email }}</td> --}}
+                                    <td><a href="{{ route('StudentShow', $student->id) }}"
                                             class="btn btn-primary btn-sm">View</a></td>
                                     <td>
                                         <form action="{{ route('colleges.destroy', $student->id) }}" method="POST"
@@ -69,7 +69,7 @@
                                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                         </form>
                                     </td>
-                                    <td><a href="{{ route('colleges.edit', $student->id) }}"
+                                    <td><a href="{{ route('studentedit', $student->id) }}"
                                             class="btn btn-warning btn-sm">Update</a></td>
                                 </tr>
                             @empty
