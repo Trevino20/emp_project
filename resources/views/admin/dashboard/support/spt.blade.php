@@ -37,27 +37,21 @@
                                 <th>Gender</th>
                                 <th>Date of Birth</th>
                                 <th>Phone</th>
-                                {{-- <th>Update</th>
-                                <th>Delete</th>
-                                <th>View</th> --}}
                             </tr>
                         </thead>
-                        {{-- <tbody>
-                            @foreach ($staff as $val)
+                        <tbody>
+                            @foreach ($support as $val)
                                 <tr>
-                                    <td>{{$val->id}}</td>
-                                    <td>{{$val->name}}</td>
-                                    <td>{{$val->support}}</td>
-                                    <td>{{$val->gender}}</td>
-                                    <td>{{$val->dob}}</td>
-                                    <td>{{$val->phone}}</td>
-                                    {{-- <td>Update</td>
-                                    <td>Update</td>
-                                    <td>Update</td> --}}
+                                    <td>{{ $val->id }}</td>
+                                    <td>{{ $val->name }}</td>
+                                    <td>{{ $val->support }}</td>
+                                    <td>{{ $val->gender }}</td>
+                                    <td>{{ $val->dob }}</td>
+                                    <td>{{ $val->phone }}</td>
 
-                        {{-- </tr>
+                                </tr>
                             @endforeach
-                        </tbody> --}}
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -66,14 +60,7 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#dataTable').DataTable({
-                serverSide: true,
-                processing: true,
-                // pageLength: 5,
-                ajax: {
-                    url: '{{ route('staff.table') }}',
-                }
-            });
+            $('#dataTable').DataTable(); // Correct initialization for DataTable
         });
     </script>
 @endsection

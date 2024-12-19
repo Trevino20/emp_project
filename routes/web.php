@@ -42,6 +42,7 @@ Route::post('/newrecordstore',[AppController::class,"Store"])->name('record.stor
 
 // Support Staff table
 Route::get('staff-table',[SupportConstroller::class,'index'])->name('staff.table');
+Route::get('/',[SupportConstroller::class,'showEmp'])->name('emp.index');
 
 
 
