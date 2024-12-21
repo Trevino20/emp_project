@@ -12,14 +12,17 @@ return new class extends Migration
     public function up()
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->id(); 
-            $table->string('name'); 
+            $table->id()->primary(); 
+            $table->string('name',30); 
             $table->string('desig');
             $table->string('gender');
-            $table->string('class'); 
+            $table->unsignedBigInteger('class_id');
+            $table->foreign('class_id')->references('id')->on('Classes')->onUpdate('cascade')
+            ->onDelete('cascade');
+            // $table->string('exam'); 
             $table->date('dob'); 
             $table->string('phone'); 
-            $table->text('email')->nullable(); 
+            $table->text('email')->nullable()->unique(); 
         });
     }
 

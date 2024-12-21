@@ -41,7 +41,6 @@
                                 <th>Class</th>
                                 <th>DOB</th>
                                 <th>Phone</th>
-                                {{-- <th>Email</th> --}}
                                 <th>Update</th>
                                 <th>Delete</th>
                                 <th>View</th>
@@ -55,7 +54,7 @@
                                     <td>{{ $student->name }}</td>
                                     <td>{{ $student->desig }}</td>
                                     <td>{{ $student->gender }}</td>
-                                    <td>{{ $student->class }} <sup>th</sup></td>
+                                    <td>{{ $student->class->class ?? 'N/A' }} </td>
                                     <td>{{ $student->dob }}</td>
                                     <td>{{ $student->phone }}</td>
                                     {{-- <td>{{ $student->email }}</td> --}}

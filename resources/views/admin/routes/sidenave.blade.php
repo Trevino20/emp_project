@@ -37,7 +37,7 @@
             <span>Tables</span>
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="{{route('new.record')}}">Add New Record</a></li>
+            <li><a class="dropdown-item" href="{{ route('new.record') }}">Add New Record</a></li>
             <li><a class="dropdown-item" href="teacher_table.html">Teacher Table</a></li>
             <li><a class="dropdown-item" href="staff_table.html">Staff Table</a></li>
         </ul>
@@ -55,7 +55,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link" href="{{route('staff.table')}}">
+        <a class="nav-link" href="{{ route('emp.index') }}">
             <i class="fas fa-fw fa-table"></i>
             <span>Staff Tables</span></a>
     </li>

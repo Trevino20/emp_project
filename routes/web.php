@@ -13,15 +13,13 @@ use App\Http\Controllers\SupportConstroller;
 Route::get('/register', function () {return view('admin.register');});
 Route::post('registersave',[UserController::class,'register'])->name('registerSave');
 
+Route::get('/',[HomeController::class,'index']);
+
 Route::get('/home/login',[UserController::class,'index'])->name("login");
 Route::post('/dashboard', [Usercontroller::class, 'authenticate'])->name('admin.authenticate');
-Route::get('/logout', [Usercontroller::class,'logout'])->name('logout');
+Route::get('/logout', [Usercontroller::class,'logout'])->name('logout')->middleware(validation::class);
 // Route::post('/dashboard', [Usercontroller::class, 'dashboard'])->name('dashboard');
 
-
-
-
-Route::get('/',[HomeController::class,'index']);
 
 
 // Create New Record
@@ -29,6 +27,7 @@ Route::get('/newrecord',[AppController::class,"index"])->name('new.record');
 Route::post('/newrecordstore',[AppController::class,"Store"])->name('record.store');
 
  // Student table Route
+ Route::get('/student',[StudentController::class, 'studentview'])->name('student.view');
  Route::middleware([validation::class])->group(function(){
     Route::get('/studenttable',[StudentController::class,'index'])->name('student.table');
     Route::get('/studentshow/{id}/show',[StudentController::class,'Show'])->name('StudentShow');
@@ -42,7 +41,7 @@ Route::post('/newrecordstore',[AppController::class,"Store"])->name('record.stor
 
 // Support Staff table
 Route::get('staff-table',[SupportConstroller::class,'index'])->name('staff.table');
-Route::get('/',[SupportConstroller::class,'showEmp'])->name('emp.index');
+Route::get('/staff',[SupportConstroller::class,'showEmp'])->name('emp.index');
 
 
 
@@ -57,4 +56,3 @@ Route::resource('/colleges', CollegeController::class)->names([
     'update' => 'colleges.update',
     'destroy' => 'colleges.destroy',
 ])->middleware(validation::class);
-

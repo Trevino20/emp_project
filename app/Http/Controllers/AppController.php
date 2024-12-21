@@ -6,6 +6,7 @@ use App\Models\support;
 use Illuminate\Http\Request;
 use App\Models\student;
 use App\Models\teacher;
+use App\Models\classes;
 
 class AppController extends Controller
 {
@@ -13,7 +14,8 @@ class AppController extends Controller
         $staff = support::select('support')  
             ->distinct()             
             ->get();
-        return view('admin.createtb',compact('staff'));
+        $class = Classes::select('id', 'class')->get();
+        return view('admin.createtb',compact('staff','class'));
     }
     public function store(Request $request){
         $role = $request->input('role');
@@ -23,7 +25,7 @@ class AppController extends Controller
                 'name' =>$request->name,
                 'desig' =>$request->role,
                 'gender' =>$request->gender,
-                'class' =>$request->class,
+                'class_id' =>$request->class_id,
                 'dob' =>$request->dob,
                 'phone' =>$request->phone,
                 'email' =>$request->email,
@@ -50,8 +52,7 @@ class AppController extends Controller
             ]);
         }
 
-        return redirect()->route('colleges.index')->with('success','New user Add successfully');
+        return redirect()->route('student.view')->with('success','New user Add successfully');
     }
 
     }
-
